@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-with-addons.js"></script>
+    <script src="../lib/JSXTransformer.js"></script>
+    <!--https://segmentfault.com/a/1190000002801128-->
+    <script type="text/jsx">
+        var Router = require('react-router');
+        var Route = Router.Route;
+
+        // declare our routes and their hierarchy
+        var routes = (
+                <Route handler={App}>
+                    <Route path="about" handler={About}/>
+                    <Route path="inbox" handler={Inbox}/>
+                </Route>
+        );
+
+        var RouteHandler = Router.RouteHandler;
+
+        var App = React.createClass({render:function(){
+            return (
+                    <div>
+                        <h1>App</h1>
+                        <RouteHandler/>
+                    </div>
+
+            )
+        }});
+
+
+        Router.run(routes, Router.HashLocation, (Root) => {
+            React.render(<Root/>, document.body);
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
