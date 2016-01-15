@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.28.1/react-bootstrap.min.js"></script>
+    <script src="../lib/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var Alert = ReactBootstrap.Alert;
+        var Button = ReactBootstrap.Button;
+
+        var AlertDismissable = React.createClass({
+            getInitialState: function() {
+                return {
+                    alertVisible: true
+                };
+            },
+
+            render: function() {
+                if (this.state.alertVisible) {
+                    return (
+                            <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
+                                <h4>Oh snap! You got an error!</h4>
+                                <p>Change this and that and try again.</p>
+                                <p>
+                                    <Button bsStyle="danger">Take this action</Button>
+                                    <span> or </span>
+                                    <Button onClick={this.handleAlertDismiss}>Hide Alert</Button>
+                                </p>
+                            </Alert>
+                    );
+                }
+
+                return (
+                        <Button onClick={this.handleAlertShow}>
+                            Show Alert
+                        </Button>
+                );
+            },
+
+            handleAlertDismiss: function() {
+                this.setState({alertVisible: false});
+            },
+
+            handleAlertShow: function () {
+                this.setState({alertVisible: true});
+            }
+        });
+
+        React.render(
+                <AlertDismissable />,
+                document.getElementById('example')
+        );
+    </script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="example"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
