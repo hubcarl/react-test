@@ -2,6 +2,10 @@ fis.match('/components/**.js', {
     isMod: true
 });
 
+fis.match('/public/**.css', {
+    isMod: true
+});
+
 fis.hook('commonjs');
 
 fis.match('::package', {
