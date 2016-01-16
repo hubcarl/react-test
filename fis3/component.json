@@ -6,6 +6,9 @@
   "dependencies": [
     "react",
     "react-dom",
-    "react-bootstrap"
+    "react-bootstrap",
+    "react-router",
+    "warning",
+    "history"
   ]
 }
